@@ -1,0 +1,15 @@
+# Private material that stays on this machine: the papers (copyrighted), working notes,
+# the build plan and review records. Cite papers by reference; never commit them.
+private/
+
+# Python and test caches
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+
+# Simulation output (every example writes into its own viz/ folder)
+viz/

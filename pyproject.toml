@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyibm"
+version = "0.1.0.dev0"
+description = "A 2D immersed boundary method in Python: periodic FFT and MAC projection fluid solvers, delta-function and blob-projection coupling, IB2d-style input files."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Laura A. Miller" }]
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.24", "scipy>=1.10", "matplotlib>=3.7"]
+keywords = ["immersed boundary method", "fluid-structure interaction", "computational fluid dynamics", "biomechanics"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+notebooks = ["nbformat", "nbclient", "ipykernel", "jupyter"]
+
+[tool.setuptools.packages.find]
+include = ["pyibm*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: long runs that compare with published or analytic references (run with -m slow)"]
+addopts = "-m 'not slow'"
